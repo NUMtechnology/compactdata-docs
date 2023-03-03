@@ -38,9 +38,9 @@ For production use, you might prefer to [download the file](https://unpkg.com/@n
 ### With Node and others
 
 ```javascript
-const CompactData = require('@numtechnology/compactdata');
+const CompactData = require("@numtechnology/compactdata");
 
-console.log(CompactData.Parser.parse('foo=bar'));
+console.log(CompactData.Parser.parse("foo=bar"));
 //-> { foo: "bar" }
 ```
 
