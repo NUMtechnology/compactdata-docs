@@ -18,7 +18,7 @@ To get started quickly you can use `unpkg.com`, a CDN powered by CloudFlare:
     <script>
       function convertCD(){
         compactData = document.getElementById("compactdata").value;
-        json = JSON.stringify(CompactData.Parser.parse(compactData),null,'  ');
+        json = JSON.stringify(CompactData.Parser.parse(compactData),null,"  ");
         document.getElementById("showJSON").innerHTML = json;
       }
     </script>
@@ -50,7 +50,7 @@ console.log(CompactData.Parser.parse("foo=bar"));
 The Ruby CompactData parser is available as a [RubyGem](https://rubygems.org/gems/compactdata) named `compactdata`:
 
 ```ruby
-require 'compactdata'
+require "compactdata"
 
 puts CompactData.parse("foo=bar")
 # -> {"foo"=>"bar"}
