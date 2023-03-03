@@ -6,4 +6,4 @@ Identical docs are served on <a href="https://www.compactdata.org/docs/">our web
 The protocol specification is [available here](spec.adoc).
 
 ## Libraries
-The list of libraries available for CompactData can be [seen here](salt-store-spec.md).
+The list of libraries available for CompactData can be [seen here](libraries.md).
