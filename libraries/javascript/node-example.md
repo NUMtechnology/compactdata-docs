@@ -1,4 +1,5 @@
-# Node Example for CompactData
+# CompactData Example for Node
+
 A very basic Node example importing the [npm package]() and `using `console.log` showing the two methods `parse` and `stringify` in 
 
 ```javascript

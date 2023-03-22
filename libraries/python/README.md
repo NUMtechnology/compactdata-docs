@@ -1,4 +1,5 @@
-# Python Example for CompactData
+# CompactData Example in Python
+
 A very basic Python example importing the [PyPI package](https://pypi.org/project/compactdata) and using `print` to output to console, using the two methods `loads` and `dumps`.
 
 ```python

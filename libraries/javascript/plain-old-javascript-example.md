@@ -1,4 +1,4 @@
-# Plain Old JavaScript Example
+# CompactData Example in Plain Old JavaScript
 
 This is a very basic HTML page that shows how to use CompactData in JavaScript.
 It is a simple tool to convert JSON to CompactData and vice versa.
