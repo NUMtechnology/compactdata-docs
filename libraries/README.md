@@ -25,3 +25,6 @@ CompactData Libraries typically follow conventions set by JSON libraries so shou
 
 ## Create one
 We welcome contributions from the open source community. Anyone can build a parser based on the [specification](spec). If you do build a CompactData library, please add it to this repository by making a [Pull Request](https://github.com/NUMtechnology/compactdata-docs/pulls).
+
+## Join the Community
+For help, support or to collaborate join the [NUM Technology Discord Server](https://discord.gg/Mm95QnhEdH).
