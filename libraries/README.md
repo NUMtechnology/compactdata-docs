@@ -8,8 +8,8 @@ CompactData Libraries typically follow conventions set by JSON libraries so shou
 - `parse` converts a CompactData string to a JavaScript Object.
 - `stringify` converts a JavaScript object to a CompactData string.
 - Example implementations available for:
-    - [CompactData using Plain Old JavaScript](javascript/plain-old-javascript-example).
-    - [CompactData using Node](javascript/node-example).
+    - [CompactData using Plain Old JavaScript](javascript/plain-old-javascript-example.md).
+    - [CompactData using Node](javascript/node-example.md).
 
 ## Ruby
 - Available as a [RubyGem](https://rubygems.org/gems/compactdata) named `compactdata`.

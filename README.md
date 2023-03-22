@@ -7,8 +7,3 @@ The protocol specification is [available here](spec.adoc).
 
 ## Libraries
 The list of libraries available for CompactData and associated documentation can be found here: [CompactData Libraries](libraries/).
-
-<zoom id="this">
-<z1>TEST</z1>
-<z2>TEST</z2>
-</zoom>
