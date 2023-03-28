@@ -1,6 +1,6 @@
 # CompactData Example for Node
 
-A very basic Node example importing the [npm package]() and `using `console.log` showing the two methods `parse` and `stringify` in 
+A very basic Node example importing the [npm package](https://www.npmjs.com/package/compactdata) and using `console.log` to show the two methods: `parse` and `stringify` in action.
 
 ```javascript
 const CompactData = require("@numtechnology/compactdata");
