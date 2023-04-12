@@ -1,6 +1,6 @@
 # CompactData Example in Ruby
 
-A very basic Ruby example importing the [RubyGem](https://rubygems.org/gems/compactdata) and using `puts` to output to console, using the two methods `parse` and `generate`.
+A very basic Ruby example importing the [RubyGem](https://rubygems.org/gems/compactdata) and using `puts` to output to console, using the two methods `parse` and `generate`. Source code for [compactdata-ruby available on GitHub](https://github.com/NUMtechnology/compactdata-ts)
 
 ```ruby
 require "compactdata"

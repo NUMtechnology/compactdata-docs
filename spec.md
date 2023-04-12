@@ -1,6 +1,6 @@
 # CompactData Specification
 <!-- vscode-markdown-toc -->
-1. [Introduction](#Introduction)
+<!-- 1. [Introduction](#Introduction)
 2. [Status](#Status)
 3. [Rules](#Rules)
 4. [Values](#Values)
@@ -20,7 +20,7 @@
 7. [Escaping](#Escaping)
 8. [Encoding For DNS](#EncodingForDNS)
 	8.1. [Hex Values](#HexValues)
-9. [Reserved Characters](#ReservedCharacters)
+9. [Reserved Characters](#ReservedCharacters) -->
 
 <!-- vscode-markdown-toc-config
 	numbering=true
@@ -28,9 +28,10 @@
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
 
+* auto-gen TOC
+{:toc}
 
-
-##  1. <a name='Introduction'></a>Introduction
+## Introduction
 
 CompactData is a data serialisation format with the goal of describing objects in as few characters as possible. CompactData has particular application in DNS TXT records because:
 
@@ -40,19 +41,19 @@ CompactData is a data serialisation format with the goal of describing objects i
 
 Until now, developers have rolled their own methods of storing data in DNS TXT records, presenting significant limitations and a barrier to entry for those looking to store data in DNS. CompactData aims to standardise data storage in DNS TXT.
 
-##  2. <a name='Status'></a>Status
+## Status
 We do not anticipate any changes to the grammar or parser rules.
 
-##  3. <a name='Rules'></a>Rules
+## Rules
 - Whitespace means space (`0x20`) or tab (`0x09`).
 - Newline means `LF` (`<0x0A`) or `CRLF` (`0x0D0A`).
 - CompactData ignores all leading and trailing whitespace.
 - CompactData files must be valid UTF-8 encoded Unicode documents.
 
-##  4. <a name='Values'></a>Values
+## Values
 Values are described precisely below:
 
-###  4.1. <a name='Map'></a>Map
+### Map
 A map begins with left parenthesis `(` and ends with right parenthesis `)`, it contains zero or more pairs separated by a semi-colon (`;`).
 
 ```
@@ -63,7 +64,7 @@ A map begins with left parenthesis `(` and ends with right parenthesis `)`, it c
 )
 ```
 
-###  4.2. <a name='Array'></a>Array
+### Array
 Arrays in CompactData will be familiar to most – beginning with a left square bracket `[` and ending with a right square bracket `]` containing zero or more values separated by a semi-colon `;`. Array items can be of any data type and data types can be mixed.
 
 ```
@@ -74,10 +75,10 @@ Arrays in CompactData will be familiar to most – beginning with a left square 
 ]
 ```
 
-###  4.3. <a name='Pair'></a>Pair
+### Pair
 Pairs are the primary building block of CompactData and consist of a value assigned to a key. They can be used in a number of ways to aid character efficiency. Orphan pairs (not within a map) are allowed for character efficiency and are converted into a map when parsed.
 
-####  4.3.1. <a name='StandardPair'></a>Standard Pair
+#### Standard Pair
 A standard pair is a key and a value separated by equals (`=`):
 
 ```
@@ -86,7 +87,7 @@ A standard pair is a key and a value separated by equals (`=`):
 )
 ```
 
-####  4.3.2. <a name='MapPair'></a>Map Pair
+#### Map Pair
 When assigning a map to a key, we can omit `=` since the left parenthesis separates the key from the map contents:
 
 ```
@@ -97,7 +98,7 @@ When assigning a map to a key, we can omit `=` since the left parenthesis separa
 )
 ```
 
-####  4.3.3. <a name='ArrayPair'></a>Array Pair
+#### Array Pair
 When assigning an array to a key, we can omit `=` since the left square bracket separates the key from the array contents:
 
 ```
@@ -109,7 +110,7 @@ When assigning an array to a key, we can omit `=` since the left square bracket 
 )
 ```
 
-####  4.3.4. <a name='OrphanPairs'></a>Orphan Pairs
+#### Orphan Pairs
 An orphan pair is one that is expressed outside of a map, either at the top level of an object or as an array value.
 
 ##### At the top level
@@ -132,19 +133,19 @@ Pairs can be expressed as values in an array, where they are automatically consi
 ]
 ```
 
-###  4.4. <a name='Number'></a>Number
+### Number
 Numbers in CompactData are the same as numbers in JSON [view RFC](https://tools.ietf.org/html/rfc7159#section-6).
 
-###  4.5. <a name='String'></a>String
+### String
 Strings in CompactData are the same as strings in JSON [view RFC](https://tools.ietf.org/html/rfc7159#section-7), with the exception that they can also be unquoted and `` `graved` ``.
 
-###  4.6. <a name='Boolean'></a>Boolean
+### Boolean
 True is represented using `true` and false is represented using `false` – in both cases, the same as JSON.
 
-###  4.7. <a name='Null'></a>Null
+### Null
 Null is represented using `null`, the same as JSON.
 
-##  5. <a name='TypeInference'></a>Type Inference
+## Type Inference
 CompactData infers the type of a value, to set a number to a string it can be quoted. For example:
 
 ```
@@ -153,7 +154,7 @@ CompactData infers the type of a value, to set a number to a string it can be qu
 )
 ```
 
-##  6. <a name='QuotingValues'></a>Quoting Values
+## Quoting Values
 Values can be quoted using double quotes (`"`) or DNS-friendly graves (`` ` ``), for example:
 
 ```
@@ -163,7 +164,7 @@ Values can be quoted using double quotes (`"`) or DNS-friendly graves (`` ` ``),
 )
 ```
 
-##  7. <a name='Escaping'></a>Escaping
+## Escaping
 Like JSON, the backslash (`\`) can be used to escape characters. In addition, the DNS-friendly tilde (`\~`) can also be used as an escape character. For character efficiency, it's usually better to quote values that include more than one reserved character. For example:
 
 ```
@@ -174,10 +175,10 @@ Like JSON, the backslash (`\`) can be used to escape characters. In addition, th
 ```
 In CompactData tilde (`\~`) is equivalent to backslash (`\`). Backslash can be used to escape tilde and tilde can be used to escape backslash. Tilde can be used to escape tilde. Backslash can be used to escape backslash.
 
-##  8. <a name='EncodingForDNS'></a>Encoding For DNS
+## Encoding For DNS
 CompactData is not limited to [ASCII characters](https://en.wikipedia.org/wiki/ASCII) but some storage media are (e.g. DNS TXT records). Non-ASCII characters can be expressed in ASCII CompactData in two ways:
 
-###  8.1. <a name='HexValues'></a>Hex Values
+### Hex Values
 Any unicode character represented by four hex digits can be used in CompactData in the same way as JSON:
 
 ```
@@ -194,7 +195,7 @@ A DNS-friendly version is also available using the tilde (`\~`) in place of the 
 )
 ```
 
-##  9. <a name='ReservedCharacters'></a>Reserved Characters
+## Reserved Characters
 For character efficiency, you should use a quoted or graved string if a value includes two or more reserved characters, otherwise use an escape character (`\` or `\~`) for a single reserved character. The following characters have special meaning in CompactData:
 
 - **Brackets**: The left bracket `(` indicates the start of a map, the right bracket `)` indicates the end.
